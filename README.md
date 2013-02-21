@@ -5,7 +5,7 @@ A simple JS game engine with an easy API. It provides access to true fixed updat
 
 core.js is where its at. It creates the two key objects, **Core** and **Input**
 
-**Core**
+`Core`
 
   **physicsTimeStep**
   
@@ -28,17 +28,17 @@ core.js is where its at. It creates the two key objects, **Core** and **Input**
     Continue internal time propogation
 
 
-**Input** - Input is highly coupled with Core. It catches all browser key events and makes them avaiable to the right update calls.
+`Input` - Input is highly coupled with Core. It catches all browser key events and makes them avaiable to the right update calls.
   
-  **getKey(**keyCode**)**
+  **getKey(**keyCode)
     
     returns true if the Key of code keyCode was down at time of the current frame.
   
-  **getKeyDown(**keyCode**)**
+  **getKeyDown(**keyCode)
     
     returns true if the Key of code keyCode was first depressed at time of the current frame (only one frame will see this)
   
-  **getKeyUp(**keyCode**)**
+  **getKeyUp(**keyCode)
     
     returns true if the Key of code keyCode was released at time of the current frame (only one frame will see this)
 
