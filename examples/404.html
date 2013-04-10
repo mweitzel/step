@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Matt Weitzel - 404: page not found</title>
+		<script type="text/javascript" charset="utf-8" src="../lib/jquery-1.8.3.min.js">//jquery.com/download/</script>
+		<script type="text/javascript" charset="utf-8" src="../lib/underscore-min.js">//github.com/documentcloud/underscore</script>
+		<script type="text/javascript" charset="utf-8" src="../lib/core.js"></script>
+	</head>
+	<body>
+		<canvas id="viewport" width="640px" height="480px" 
+			style="
+			display:table; margin:auto;"
+			></canvas>
+			<script type="text/javascript">
+  
+        pixelSize = 19
+
+        function Square(point){
+          this.size = 10
+          this.x = point.x
+          this.y = point.y
+          this.tx = 0
+          this.ty = 0
+        }
+        
+        Square.prototype.draw = function(ctx){
+
+          ctx.moveTo(this.x, this.y)
+
+          color = "rgba(0,0,0,1)"
+          ctx.fillStyle = color
+          ctx.fillRect(this.x*pixelSize + this.tx,  pixelSize*this.y + this.ty, pixelSize, pixelSize)
+
+        }
+        
+        isJibbling = function(){
+          return true
+        }
+        
+        Square.prototype.update = function(){
+          time = Core.lastUpdate - Core.startTime
+          ammount = 0
+          if(Math.random() < 0.3)
+            ammount = Math.sin(time/2000)
+          if(ammount < 0.1 && ammount > -0.1)
+            ammount = 0
+          if(ammount > 0.999 || Math.random() < 0.001)
+            ammount = 10
+          if(time < 1000)
+            ammount = 0
+
+          this.tx += ammount*(Math.random() - 0.5)
+          this.ty += ammount*(Math.random() - 0.5)
+
+          this.tx *= 0.91
+          this.ty *= 0.91        
+
+        }
+
+        someObject = Square
+
+        //Core.entities.push(new Shape())
+        pieces = [
+                  {x:0, y:1},
+                  {x:0, y:2},
+                  {x:0, y:3},
+                  {x:1, y:3},
+                  {x:2, y:3},
+                  {x:3, y:0},
+                  {x:3, y:1},
+                  {x:3, y:2},
+                  {x:3, y:3},
+                  {x:3, y:4},
+                  
+
+
+                  {x:6, y:0},
+                  {x:7, y:0},
+                  {x:6, y:4},
+                  {x:7, y:4},
+
+                  {x:5, y:1},
+                  {x:5, y:2},
+                  {x:5, y:3},
+
+                  {x:8, y:1},
+                  {x:8, y:2},
+                  {x:8, y:3},
+                  
+                  
+                  {x:10, y:1},
+                  {x:10, y:2},
+                  {x:10, y:3},
+                  {x:11, y:3},
+                  {x:12, y:3},
+                  {x:13, y:0},
+                  {x:13, y:1},
+                  {x:13, y:2},
+                  {x:13, y:3},
+                  {x:13, y:4},
+                  
+                  
+                  ]
+
+        _.each(pieces, function(piece) {Core.entities.push(new Square(  {x: piece.x + 10, y: piece.y + 5}  ))})
+        
+        Core.stats.show = false
+        Core.start()
+
+			</script>
+	</body>
+</html>
