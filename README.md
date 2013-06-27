@@ -1,4 +1,4 @@
-turnt-sansa
+blitz
 ===========
 
 A simple JS game engine with an easy API. It provides access to true fixed update calls that are aware of input.
