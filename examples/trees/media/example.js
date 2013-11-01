@@ -1,10 +1,10 @@
 
 keys = {
-	left:37,
-	up:38,
-	right:39,
-	"v":86,
-	dodge:86
+  left:37,
+  up:38,
+  right:39,
+  "v":86,
+  dodge:86
 }
 
 var i = 100

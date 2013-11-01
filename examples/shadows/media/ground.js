@@ -1,20 +1,20 @@
 function Ground(){
-	this.x = Math.random() * 640 //20
-	this.y = Math.random() * 480 //10
-	this.width = 50
-	this.isGrabbable = true
+  this.x = Math.random() * 640 //20
+  this.y = Math.random() * 480 //10
+  this.width = 50
+  this.isGrabbable = true
 }
 
 Ground.prototype.draw = function(ctx){
 
   ctx.beginPath()
 
-	ctx.strokeStyle = "#000000"
+  ctx.strokeStyle = "#000000"
 
- 	ctx.moveTo(this.leftX(),this.y)
- 	ctx.lineTo(this.rightX(),this.y)
+   ctx.moveTo(this.leftX(),this.y)
+   ctx.lineTo(this.rightX(),this.y)
 
-  ctx.stroke()	
+  ctx.stroke()  
 }
 
 Ground.prototype.leftX = function(){
@@ -31,10 +31,10 @@ Ground.prototype.update = function(){
 }
 
 Ground.prototype.intersectionVector = function(){
-	return {
-		x0:this.leftX(),
-		y0:this.y,
-		x1:this.rightX(),
-		y1:this.y
-	}
+  return {
+    x0:this.leftX(),
+    y0:this.y,
+    x1:this.rightX(),
+    y1:this.y
+  }
 }
