@@ -41,9 +41,9 @@ Physics.intersectionOf = function(vectorA, vectorB){
     // console.log(toReturn)
   }
   // p + t r = q + u s
-  
+
   return toReturn
-  
+
 }
 
 function Player(){
@@ -55,11 +55,11 @@ function Player(){
   this.lean = 0.13
   this.mass = 0.5
   this.isGrabbable = false
-  
+
   man = this
 
   this.dot = []
-  
+
   var i = 800
   while(i){
     var j = 60
@@ -69,14 +69,14 @@ function Player(){
     }
     i--
   }
-  
-  
+
+
 }
 
 Player.prototype.draw = function(ctx){
 
   ctx.fillStyle = "#FF00cc"
-  
+
   // _.each(this.dot, function(dot){
   //   ctx.fillRect(dot[0],dot[1],1,1)
   // })
@@ -86,23 +86,23 @@ Player.prototype.draw = function(ctx){
   //   while(j){
   //     ctx.fillRect(i,j,1,1)
   //     // ctx.drawLinRect(i,j,1,1)
-  //     
+  //
   //     j--
   //   }
   //   i--
   // }
-  
-      
+
+
   ctx.fillStyle = "#FF00cc"
   ctx.fillRect(this.x-2,this.y-2,4,4)
   ctx.fillStyle = "#000000"
-  
+
 }
 
 Player.prototype.update = function(){
   // if(Input.isDodging())
     // this.parent = {}
-  
+
   if(this.isFlying())
     this.flyingUpdate()
   else
@@ -126,19 +126,19 @@ Player.prototype.isFlying = function(){
 Player.prototype.flyingUpdate = function(){
   this.dy += 0.005*Core.physicsTimeStep
   this.dy *= 0.999
-  
+
   this.respondToInput()
-  
+
   this.x += this.dx
   this.y += this.dy
-  
+
   if(this.x <  0 && this.dx < 0)
     this.x = 640
   if(this.x > 640 )
     this.x = 0
   if(this.y > 400 )
     this.y = 0
-  
+
   this.tryToGrabATree()
 }
 
@@ -183,7 +183,7 @@ Player.prototype.tryToGrabATree = function(){
 }
 
 Player.prototype.treeUpdate = function(){
-  
+
 }
 
 

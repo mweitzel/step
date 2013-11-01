@@ -18,7 +18,7 @@ Rect.prototype.update = function() {
     this.velocity = -1*this.rand*this.rand;
   }
 
-  
-  
+
+
   this.y += this.velocity*Core.physicsTimeStep*0.1;
 };

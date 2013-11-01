@@ -1,5 +1,5 @@
 function Tree(settings) {
-  
+
   this.isGrabbable = true
   this.x = 620 * Math.random() + 10
   this.y = 400// + Math.random()*40
@@ -9,20 +9,20 @@ function Tree(settings) {
   for(var i = 0; i < numberOfBranches; i++){
     var branch = {}
     branch.length = (Math.random() * (numberOfBranches - i)) * (Math.random() - 0.5)
-    branch.height = i 
+    branch.height = i
     this.branches.push(branch)
   }
   this.momentum = 0.0
   this.sway = 0
-  
+
   this.rigidity = 0.01//* Math.random()*2;
   this.spring = 10;
   this.lastForceHeight = 0
-  
+
   _.extend(this, settings)
 }
 
-Tree.prototype.draw = function(ctx) { 
+Tree.prototype.draw = function(ctx) {
   ctx.beginPath()
 
   if(this.sway == 0){
@@ -46,7 +46,7 @@ Tree.prototype.draw = function(ctx) {
       relativeSway = Tree.swayForHeight(tree, branch.height)
       ctx.moveTo(tree.x+relativeSway, tree.y - branch.height + Tree.yDiff(relativeSway, branch.height))
       ctx.lineTo(tree.x+relativeSway + branch.length, tree.y - branch.height + 2 + Tree.yDiff(relativeSway, branch.height+2))
-    })  
+    })
   })()
 
   ctx.stroke()
@@ -83,7 +83,7 @@ Tree.prototype.dampen = function(sway){
   if(Math.abs(sway) < 10/this.height)
     return 0
   else
-    return (1 - this.rigidity/1) * sway 
+    return (1 - this.rigidity/1) * sway
 }
 
 Tree.prototype.strain = function(){
@@ -94,7 +94,7 @@ Tree.prototype.addForce = function(force, height){
   height = height || this.height/2
   this.lastForceAdded = height
   this.momentum += force * (height/(this.height*this.rigidity))/100
-  
+
 }
 
 Tree.prototype.tryToBreak = function(){
@@ -133,7 +133,7 @@ Tree.prototype.breakAt = function(height){
     Core.entities.push(toAdd)
   })
   // make trunk too..
-  
+
   this.branches = _.filter(this.branches, function(branch){ return branch.height < height})
 
   this.momentum = 0

@@ -14,7 +14,7 @@ Ground.prototype.draw = function(ctx){
    ctx.moveTo(this.leftX(),this.y)
    ctx.lineTo(this.rightX(),this.y)
 
-  ctx.stroke()  
+  ctx.stroke()
 }
 
 Ground.prototype.leftX = function(){

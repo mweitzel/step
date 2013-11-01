@@ -1,5 +1,5 @@
 function KeyPressOrderTest(){
-  
+
 }
 
 KeyPressOrderTest.prototype.draw = function(ctx){
