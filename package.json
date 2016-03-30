@@ -1,0 +1,11 @@
+{
+    "name": "step-core"
+  , "private":"true"
+  , "dependencies": {
+      "lodash": "*"
+    }
+  , "devDependencies": {
+      "tape": "4.2.x"
+    , "testdouble": "0.2.0"
+    }
+}
