@@ -1,9 +1,9 @@
 step
 ===========
 
-A simple JS game engine with an easy API. It provides access to true fixed update calls that are aware of input.
+A small JS game engine with a smaller API. It provides access to true fixed update calls that are aware of input.
 
-core.js is where its at. It creates the two key objects, **Core** and **Input**
+core.js is where its at. It exports the key object `Core`, created with `var core = new Core(window, canvasContext)`
 
 ## Core
 
@@ -30,7 +30,7 @@ core.js is where its at. It creates the two key objects, **Core** and **Input**
 
 ## Input
 
-Input is highly coupled with Core. It catches all browser key events and makes them avaiable to the right update calls.
+Input is accessed through `core.input`. All browser key events are avaiable in the correct update calls.
 
   **getKey(**keyCode)
 
