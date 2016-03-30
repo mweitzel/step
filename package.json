@@ -1,11 +1,26 @@
 {
-    "name": "step-core"
-  , "private":"true"
-  , "dependencies": {
-      "lodash": "*"
-    }
-  , "devDependencies": {
-      "tape": "4.2.x"
-    , "testdouble": "0.2.0"
-    }
+  "name": "step-core"
+, "version": "0.0.1"
+, "description": "micro js engine with fixed timestep and keyboard events"
+, "main": "lib/core.js"
+, "scripts": {
+    "test": "./test-unit"
+  }
+, "repository": {
+    "type": "git"
+  , "url": "https://github.com/mweitzel/step"
+  }
+, "keywords": [
+    "game"
+  , "engine"
+  ]
+, "author": "Matthew Weitzel <mweitzel@gmail.com>"
+, "dependencies": {
+    "lodash": "*"
+  }
+, "devDependencies": {
+    "tape": "4.2.x"
+  , "testdouble": "0.2.0"
+  }
+, "license": "MIT"
 }
