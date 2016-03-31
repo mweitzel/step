@@ -3,45 +3,46 @@ step
 
 A small JS game engine with a smaller API. It provides access to true fixed update calls that are aware of input.
 
-core.js is where its at. It exports the key object `Core`, created with `var core = new Core(window, canvasContext)`
+core.js is where its at. It exports the key object `Core`, create with
+```js
+var core = new Core(window, canvasContext)
+```
 
-## Core
+## core.physicsTimeStep
 
-  **physicsTimeStep**
+Frequency at which update will be called. Defaults to 1000/60
 
-    Frequency update will be called. defaults at 1000/60
+## core.entities
 
-  **entities**
+Array of game objects. Adding an object to this list will attempt to call its draw(context) and update() functions.
 
-    Array of game objects. Adding an object to this list will attempt to call its draw(context) and update() functions.
+## core.start()
 
-  **start**
+Call this once everything is loaded to get things moving. After it is called once, it acts as `core.play`
 
-    Call this once everything is loaded to get things moving. After it is called once, it acts as 'play'
+## core.pause
 
-  **pause**
+Prevent internal time propogation
 
-    Prevent internal time propogation
+## core.play
 
-  **play**
-
-    Continue internal time propogation
+Continue internal time propogation
 
 
 ## Input
 
 Input is accessed through `core.input`. All browser key events are avaiable in the correct update calls.
 
-  **getKey(**keyCode)
+*Note: `keyCode` is deprecated in most browsers and will be dropped soon. Will switch soon to `keyboardEvent.code` and bump version number.*
 
-    returns true if the Key of code keyCode was down at time of the current frame.
+## core.input.getKey(keyCode)
 
-  **getKeyDown(**keyCode)
+returns true if the Key of code `keyCode` was down at time of the current frame.
 
-    returns true if the Key of code keyCode was first depressed at time of the current frame (only one frame will see this)
+## core.input.getKeyDown(keyCode)
 
-  **getKeyUp(**keyCode)
+returns true if the Key of code keyCode was first depressed at time of the current frame (only one frame will see this)
 
-    returns true if the Key of code keyCode was released at time of the current frame (only one frame will see this)
+## core.input.getKeyUp(keyCode)
 
-There are other variables and methods available, but I haven't made them private yet. It works best if you don't use them.
+returns true if the Key of code keyCode was released at time of the current frame (only one frame will see this)
